@@ -174,12 +174,15 @@ After downloading:
 
 - Run all commands from the project root directory.
 
-## Demo Videos
+## Demo 
 
-Below are sample outputs of the model detecting pneumonia and normal chest X-rays:
+Below are sample outputs(gifs) of the model detecting pneumonia and normal chest X-rays:
 
+### Pneumonia Case  
 ![Pneumonia Demo](media/pneumoniaCase.gif)
--  [Watch Normal Case Demo](media/normalCase.mp4)
+
+### Normal Case  
+![Normal Demo](media/normalCase.gif)
 
 
 ## License
