@@ -174,7 +174,7 @@ After downloading:
 
 - Run all commands from the project root directory.
 
-## Demo 
+## Demo Previews
 
 Below are sample outputs(gifs) of the model detecting pneumonia and normal chest X-rays:
 
