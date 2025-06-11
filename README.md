@@ -178,15 +178,8 @@ After downloading:
 
 Below are sample outputs of the model detecting pneumonia and normal chest X-rays:
 
-### Pneumonia Case
-<video src="media/pneumoniaCase.mp4" controls width="600">
-  Your browser does not support the video tag.
-</video>
-
-### Normal Case
-<video src="media/normalCase.mp4" controls width="600">
-  Your browser does not support the video tag.
-</video>
+-  [Watch Pneumonia Case Demo](media/pneumoniaCase.mp4)
+-  [Watch Normal Case Demo](media/normalCase.mp4)
 
 
 ## License
