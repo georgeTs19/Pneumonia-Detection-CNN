@@ -81,6 +81,7 @@ pneumonia-detection-cnn/
 │   ├── evaluate_models.py
 │   └── visualization.py
 │
+│── media
 ├── .gitignore
 ├── requirements.txt
 └── README.md
@@ -172,6 +173,21 @@ After downloading:
 ---
 
 - Run all commands from the project root directory.
+
+## Demo Videos
+
+Below are sample outputs of the model detecting pneumonia and normal chest X-rays:
+
+### Pneumonia Case
+<video src="media/pneumoniaCase.mp4" controls width="600">
+  Your browser does not support the video tag.
+</video>
+
+### Normal Case
+<video src="media/normalCase.mp4" controls width="600">
+  Your browser does not support the video tag.
+</video>
+
 
 ## License
 
