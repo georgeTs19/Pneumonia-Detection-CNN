@@ -40,7 +40,7 @@ The data is divided into training, validation, and test sets.
 - scikit-learn
 
 ##  Project Directory Structure
-
+```
 pneumonia-detection-cnn/
 │
 ├── app/
@@ -84,7 +84,7 @@ pneumonia-detection-cnn/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
-
+```
 ---
 
 ## Dataset Note
