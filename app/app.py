@@ -72,19 +72,33 @@ import os  # ⬅️ Add this at the top if not already present
 
 @st.cache_resource
 def load_models():
-    """Load both base and transfer learning models"""
+    """Load only the transfer model (used directly and in ensemble)"""
     try:
-        # Get the root directory of the project
         ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-        base_model_path = os.path.join(ROOT_DIR, "outputs", "best_model.keras")
         transfer_model_path = os.path.join(ROOT_DIR, "outputs", "best_transfer_model.keras")
+        base_model_path = os.path.join(ROOT_DIR, "outputs", "best_model.keras")  
 
+        # If you still want ensemble, load both
         base_model = tf.keras.models.load_model(base_model_path)
         transfer_model = tf.keras.models.load_model(transfer_model_path)
+
         return base_model, transfer_model
     except Exception as e:
         st.error(f"Error loading models: {str(e)}")
         return None, None
+
+def ensemble_predictions(base_model, transfer_model, img_array):
+    """Average predictions from base and transfer model"""
+    try:
+        base_prob = base_model.predict(img_array)[0][0]
+        transfer_prob = transfer_model.predict(img_array)[0][0]
+        avg_prob = (base_prob + transfer_prob) / 2.0
+        prediction = "PNEUMONIA" if avg_prob > 0.5 else "NORMAL"
+        confidence = avg_prob if avg_prob > 0.5 else 1 - avg_prob
+        return prediction, confidence, avg_prob
+    except Exception as e:
+        st.error(f"Error in ensemble prediction: {str(e)}")
+        return None, None, None
 
 def preprocess_image(uploaded_file, target_size=(224, 224)):
     """Preprocess uploaded image for prediction"""
@@ -188,7 +202,7 @@ def display_gradcam(original_img, heatmap, alpha=0.4):
 
 def create_model_comparison_chart(base_result, transfer_result, base_conf, transfer_conf):
     """Create comparison chart between models"""
-    models = ['Base CNN', 'Transfer Learning']
+    models = ['Ensemple Model', 'Transfer Learning']
     predictions = [base_result, transfer_result]
     confidences = [base_conf, transfer_conf]
     
@@ -276,9 +290,12 @@ def main():
                 
                 # Base model prediction (if comparison is enabled)
                 if compare_models:
-                    base_result, base_prob, base_conf = make_prediction(
-                        st.session_state.base_model, img_array, "Base CNN"
-                    )
+                    base_result, base_prob, base_conf = ensemble_predictions(
+                    st.session_state.base_model,
+                    st.session_state.transfer_model,
+                    img_array
+                )
+
             
             # Display results
             with col2:
@@ -300,7 +317,7 @@ def main():
                     prediction_class = "pneumonia-prediction" if base_result == "PNEUMONIA" else "normal-prediction"
                     st.markdown(f"""
                     <div class="prediction-box {prediction_class}">
-                        <strong>Base CNN Model</strong><br>
+                        <strong>Ensemble Model</strong><br>
                         Prediction: {base_result}<br>
                         Confidence: {base_prob:.2%}
                     </div>
