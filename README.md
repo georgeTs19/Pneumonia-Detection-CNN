@@ -178,7 +178,7 @@ After downloading:
 
 Below are sample outputs of the model detecting pneumonia and normal chest X-rays:
 
--  [Watch Pneumonia Case Demo](media/pneumoniaCase.mp4)
+![Pneumonia Demo](media/pneumoniaCase.gif)
 -  [Watch Normal Case Demo](media/normalCase.mp4)
 
 
