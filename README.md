@@ -105,7 +105,7 @@ After downloading:
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/pneumonia-detection-cnn.git
+    git clone https://github.com/georgeTs19/pneumonia-detection-cnn.git
     cd pneumonia-detection-cnn
     ```
 
