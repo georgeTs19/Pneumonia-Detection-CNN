@@ -119,7 +119,7 @@ After downloading:
     ```bash
     jupyter notebook notebooks/eda.ipynb
     ```
-    📌 **Expected Output:**  
+    **Expected Output:**  
     Visual insights into the dataset (e.g., image samples, class balance).
 
 ---
@@ -130,7 +130,7 @@ After downloading:
     ```bash
     python -m src.train
     ```
-    📌 **Expected Output:**  
+    **Expected Output:**  
     - `outputs/best_model.keras`  
     - `outputs/training_history.json`  
     - `outputs/accuracy_curve.png`, `outputs/loss_curve.png`
@@ -139,7 +139,7 @@ After downloading:
     ```bash
     python -m src.transfer_train
     ```
-    📌 **Expected Output:**  
+    **Expected Output:**  
     - `outputs/best_transfer_model.keras`  
     - `outputs/training_history_transfer.json`  
     - `outputs/accuracy_curve_transfer.png`, `outputs/loss_curve_transfer.png`
@@ -148,7 +148,7 @@ After downloading:
     ```bash
     python -m src.evaluate_models
     ```
-    📌 **Expected Output:**  
+    **Expected Output:**  
     - `outputs/test_results.txt`  
     - Comparison of model performances
 
@@ -156,7 +156,7 @@ After downloading:
     ```bash
     jupyter notebook notebooks/results.ipynb
     ```
-    📌 **Expected Output:**  
+    **Expected Output:**  
     - Insights from training history and evaluation
 
 ---
@@ -167,7 +167,7 @@ After downloading:
     ```bash
     streamlit run app/app.py
     ```
-    📌 **Expected Output:**  
+    **Expected Output:**  
     Interactive web interface for pneumonia detection from chest X-ray images
 
 ---
